@@ -50,7 +50,7 @@ class Process extends CI_Model{
 
 	public function getUser($post){
 		$encrypt_pass = md5($post['password']);
-		$query = "SELECT first_name, last_name, alias, email, created_at, updated_at FROM users WHERE email=? AND password=?";
+		$query = "SELECT id, first_name, last_name, alias, email, created_at, updated_at FROM users WHERE email=? AND password=?";
 		$values = array($post['email'], $encrypt_pass);
 		return $this->db->query($query, $values)->row_array();
 	}

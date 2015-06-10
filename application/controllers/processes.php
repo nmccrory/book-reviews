@@ -31,6 +31,11 @@ class Processes extends CI_Controller {
 		}
 	}
 
+	public function logout(){
+		session_destroy();
+		redirect('/');
+	}
+
 	public function book_route(){
 		$this->load->view('landing');
 	}
