@@ -38,9 +38,9 @@
 							<?php endfor; ?>
 							<div class='section'>
 							<a href=<?php echo "/users/{$book_review['user_id']}";?>><?=$book_review['first_name']?></a>
+							<p><i><?=$book_review['review']?></i></p>
+								<p>Posted on <i><?=$book_review['updated_at']?></i></p>
 							</div>
-							<p>says: <i><?=$book_review['review']?></i></p>
-							<p><i><?=$book_review['updated_at']?></i></p>
 						</div>
 						<?php endforeach; ?>
 					</div>

@@ -18,7 +18,7 @@
 			<div class="row">
 				<h3><?=$bookinfo['title']?></h3>
 			</div>
-			<div class="row"><p>Author: <?=$bookinfo['author']?></p></div>
+			<div class="row"><h5>Author: <?=$bookinfo['author']?></h5></div>
 		</div>
 		<div class="container">
 			<div class="row">
@@ -37,10 +37,8 @@
 								for($e=0;$e<$empties;$e++): ?>
 								<img style="display:inline-block;max-width:5%" src="/assets/images/empty_star.svg.png"></img>
 							<?php endfor; ?>
-							<div class="row">
-								<a href='#'><?=$review['first_name']?></a><p>says: <i><?=$review['review']?></i></p>
-							</div>
-							<div class="row">
+							<div class='section'>
+								<a href=<?php echo "/users/{$review['user_id']}";?>><?=$review['first_name']?></a><p><i><?=$review['review']?></i></p>
 								<p>Posted on <i><?=$review['updated_at']?></i></p>
 							</div>
 						</div>
@@ -52,7 +50,7 @@
 							Review: <textarea class='textarea' name='review'></textarea>
 						<div class='row'>
 							<div class="col s2">
-								Rating: <input type="number" name='rating'>
+								Rating: <input type="number" min='1'max='5' name='rating'>
 							</div>
 						</div>
 							<div class='row'>
