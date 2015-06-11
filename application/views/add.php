@@ -7,8 +7,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col s12" style='text-align:right'>
-					<a href='#'>Home</a>
-					<a href='/logout' style='margin-left:4%'>Logout</a>
+					<div class='section'>
+						<a href='/books'>Home</a>
+						<a href='/logout' style='margin-left:4%'>Logout</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -22,12 +24,11 @@
 					Author:
 						<label>Choose from list: </label>
 					    <select class="browser-default" name='author'>
-					      <option value="" disabled selected>Choose author</option>
-					      <option value="1">Option 1</option>
-					      <option value="2">Option 2</option>
-					      <option value="3">Option 3</option>
+					      <?php foreach($authors as $author): ?>
+					      	<option value=<?=$author['author']?>><?=$author['author']?></option>
+					      <?php endforeach ?>
 					    </select>
-						Or add new author: <input type="text" name='author'>
+						Or add new author: <input type="text" name='new_author'>
 					Review: <textarea class='textarea' name='review'></textarea>
 					<div class="col s1">
 						Rating: <input type="number" name='rating'>

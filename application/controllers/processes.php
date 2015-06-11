@@ -36,7 +36,14 @@ class Processes extends CI_Controller {
 		redirect('/');
 	}
 
+	public function showUser($id){
+		$this->load->model('process');
+		$this->load->view('user', array('user'=>$this->process->getUserbyId($id), 'review_count'=>$this->process->getUserReviewCount($id), 'books'=>$this->process->getUsersBooks($id)));
+	}
 	public function book_route(){
-		$this->load->view('landing');
+		$this->load->model('book');
+		$book_reviews = $this->book->getBookReviews();
+		$reviewed_titles = $this->book->getAllBooks();
+		$this->load->view('landing',array('book_reviews'=>$book_reviews, 'titles'=>$reviewed_titles));
 	}
 }

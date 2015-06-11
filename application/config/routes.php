@@ -9,5 +9,8 @@ $route['login'] = 'processes/login';
 $route['logout'] = 'processes/logout';
 $route['books'] = 'processes/book_route';
 $route['books/add'] = 'books/showform';
+$route['books/(:any)'] = 'books/showBook/$1';
 $route['addbook'] = 'books/addBookandRev';
+$route['add/(:any)'] = 'books/addReview/$1';
+$route['users/(:any)'] = 'processes/showUser/$1';
 ?>

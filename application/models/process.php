@@ -54,5 +54,19 @@ class Process extends CI_Model{
 		$values = array($post['email'], $encrypt_pass);
 		return $this->db->query($query, $values)->row_array();
 	}
+	public function getUserReviewCount($id){
+		$review_count = "SELECT COUNT(review) FROM reviews WHERE reviews.user_id = $id";
+		return $this->db->query($review_count)->row_array();
+	}
+
+	public function getUserbyId($id){
+		$query = "SELECT * FROM users WHERE users.id = $id";
+		return $this->db->query($query)->row_array();
+	}
+
+	public function getUsersBooks($id){
+		$query = "SELECT title, book_id FROM reviews JOIN books ON reviews.book_id = books.id WHERE reviews.user_id=$id";
+		return $this->db->query($query)->result_array();
+	}
 }
  ?>
